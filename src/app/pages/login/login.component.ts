@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
     private router: Router
-  ) {}
+  ) {
+    localStorage.clear();
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -40,10 +42,8 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(response => {
       if (response) {
         this.router.navigate(['dashboard']);
-      } else {
-        this.error = true;
       }
-    });
+    }, () => this.error = true);
   }
 
 }

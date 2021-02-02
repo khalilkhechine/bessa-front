@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000',
-  authUrl: '/api/auth'
+  authUrl: '/api/auth',
+  userUrl: '/api/users',
+  babyUrl: '/api/bebes'
 };
 
 /*

@@ -12,6 +12,8 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {BabyCreateComponent} from '../../pages/baby/baby-create/baby-create.component';
+import {BabyListComponent} from '../../pages/baby/baby-list/baby-list.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -21,14 +23,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     TablesComponent,
     IconsComponent,
-    MapsComponent
+    MapsComponent,
+    BabyCreateComponent,
+    BabyListComponent
   ]
 })
 

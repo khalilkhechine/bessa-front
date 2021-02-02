@@ -23,22 +23,26 @@ export class AuthenticationService {
     return jwt_decode(this.jwtToken);
   }
 
-  set jwtToken(token: string) {
+  set jwtToken(token) {
     localStorage.clear();
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', token );
   }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}${environment.authUrl}/login`, { username, password })
+  login(email: string, password: string) {
+    return this.http.post<any>(`${environment.apiUrl}${environment.authUrl}/login`, { email, password })
     .pipe(map(token => {
-      // store user details and jwt token in local storage to keep user logged in between page refreshes
-      this.jwtToken = token;
-      return this.decryptedUser;
+      console.log(token);
+      if (token) {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        this.jwtToken = token.accessToken;
+        return this.decryptedUser;
+      }
     }));
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then(() => {
+      localStorage.clear();
+    });
   }
 }
