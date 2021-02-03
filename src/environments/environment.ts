@@ -7,7 +7,8 @@ export const environment = {
   apiUrl: 'http://localhost:3000',
   authUrl: '/api/auth',
   userUrl: '/api/users',
-  babyUrl: '/api/bebes'
+  babyUrl: '/api/bebes',
+  babyBottleUrl: '/api/baby-bottle'
 };
 
 /*
