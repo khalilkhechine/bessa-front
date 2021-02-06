@@ -8,7 +8,10 @@ export const environment = {
   authUrl: '/api/auth',
   userUrl: '/api/users',
   babyUrl: '/api/bebes',
-  babyBottleUrl: '/api/baby-bottle'
+  babyBottleUrl: '/api/baby-bottle',
+  diaperUrl: '/api/diaper',
+  vaccineUrl: '/api/vaccine',
+
 };
 
 /*

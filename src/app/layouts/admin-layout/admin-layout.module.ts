@@ -15,6 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {BabyCreateComponent} from '../../pages/baby/baby-create/baby-create.component';
 import {BabyListComponent} from '../../pages/baby/baby-list/baby-list.component';
 import {CreateBabyInformationComponent} from '../../pages/baby-information/create-baby-information/create-baby-information.component';
+import {BabyBottleComponent} from '../../pages/baby-information/baby-bottle/baby-bottle.component';
+import {DiaperComponent} from '../../pages/baby-information/diaper/diaper.component';
+import {VaccineComponent} from '../../pages/baby-information/vaccine/vaccine.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -35,7 +38,10 @@ import {CreateBabyInformationComponent} from '../../pages/baby-information/creat
     MapsComponent,
     BabyCreateComponent,
     BabyListComponent,
-    CreateBabyInformationComponent
+    CreateBabyInformationComponent,
+    BabyBottleComponent,
+    DiaperComponent,
+    VaccineComponent,
   ]
 })
 
