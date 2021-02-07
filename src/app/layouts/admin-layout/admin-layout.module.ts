@@ -18,6 +18,7 @@ import {CreateBabyInformationComponent} from '../../pages/baby-information/creat
 import {BabyBottleComponent} from '../../pages/baby-information/baby-bottle/baby-bottle.component';
 import {DiaperComponent} from '../../pages/baby-information/diaper/diaper.component';
 import {VaccineComponent} from '../../pages/baby-information/vaccine/vaccine.component';
+import {GrowthComponent} from '../../pages/baby-information/growth/growth.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -42,6 +43,7 @@ import {VaccineComponent} from '../../pages/baby-information/vaccine/vaccine.com
     BabyBottleComponent,
     DiaperComponent,
     VaccineComponent,
+    GrowthComponent,
   ]
 })
 

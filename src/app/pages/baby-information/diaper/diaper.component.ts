@@ -19,7 +19,6 @@ export class DiaperComponent implements OnInit {
     if (selectedBabyId) {
       this.babyInformationService.getDiaperByBaby(this._selectedBabyId).subscribe(response => {
         this.diaper = response;
-        console.log(response);
         if (response) {
           this.initDiaperFormGroup(this.diaper);
         }
@@ -34,7 +33,6 @@ export class DiaperComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private babyService: BabyService,
     private babyInformationService: BabyInformationService
   ) { }
 
@@ -64,12 +62,10 @@ export class DiaperComponent implements OnInit {
       this.babyInformationService
       .updateDiaper(this.diaper._id, this.diaperFormGroup.controls.period.value)
       .subscribe(response => {
-        console.log(response);
         this.diaper = response;
       });
     } else {
       this.babyInformationService.createDiaper(diaper).subscribe(response => {
-        console.log(response);
         this.diaper = response;
       });
     }

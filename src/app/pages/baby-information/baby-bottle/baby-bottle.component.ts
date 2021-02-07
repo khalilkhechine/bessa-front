@@ -18,7 +18,6 @@ export class BabyBottleComponent implements OnInit {
     if (selectedBabyId) {
       this.babyInformationService.getBabyBottleByBaby(this._selectedBabyId).subscribe(response => {
         this.babyBottle = response;
-        console.log(response);
         if (response) {
           this.initBabyBottleFormGroup(this.babyBottle);
         }
@@ -63,12 +62,10 @@ export class BabyBottleComponent implements OnInit {
       this.babyInformationService
         .updateBabyBottle(this.babyBottle._id, this.babyBottleFormGroup.controls.period.value)
         .subscribe(response => {
-          console.log(response);
         this.babyBottle = response;
       });
     } else {
       this.babyInformationService.createBabyBottle(babyBottle).subscribe(response => {
-        console.log(response);
         this.babyBottle = response;
       });
     }

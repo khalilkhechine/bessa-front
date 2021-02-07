@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {BabyBottle} from '../models/baby-bottle.model';
 import {Diaper} from '../models/diaper.model';
 import {Vaccine} from '../models/vaccine.model';
+import {Growth} from '../models/growth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class BabyInformationService {
   private babyBottleUrl = environment.apiUrl + environment.babyBottleUrl;
   private diaperUrl = environment.apiUrl + environment.diaperUrl;
   private vaccineUrl = environment.apiUrl + environment.vaccineUrl;
+  private growthUrl = environment.apiUrl + environment.growthUrl;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -51,5 +53,17 @@ export class BabyInformationService {
 
   updateVaccine(id, vaccine: Vaccine) {
     return this.httpClient.put<Vaccine>(this.vaccineUrl + '/' + id, vaccine);
+  }
+
+  getGrowthByBaby(id): Observable<Growth> {
+    return this.httpClient.get<Growth>(this.growthUrl + '/baby/' + id);
+  }
+
+  addGrowth(id, growth): Observable<Growth> {
+    return this.httpClient.post<Growth>(this.growthUrl + '/' + id, growth);
+  }
+
+  createGrowth(babyId, growth): Observable<Growth> {
+    return this.httpClient.post<Growth>(this.growthUrl + '/baby/' +  babyId, growth);
   }
 }

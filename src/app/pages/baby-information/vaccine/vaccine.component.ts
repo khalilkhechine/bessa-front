@@ -17,7 +17,6 @@ export class VaccineComponent implements OnInit {
     this._selectedBabyId = selectedBabyId;
     if (selectedBabyId) {
       this.babyInformationService.getVaccinesByBaby(this._selectedBabyId).subscribe(response => {
-        console.log(response);
         this.vaccines = response;
       });
     }}
@@ -50,8 +49,6 @@ export class VaccineComponent implements OnInit {
   }
 
   submitVaccineInformation() {
-    console.log(this.vaccineFormGroup.value);
-    console.log(this.vaccineFormGroup.valid);
     if (this.vaccineFormGroup.invalid) {
       return;
     }

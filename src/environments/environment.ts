@@ -11,6 +11,8 @@ export const environment = {
   babyBottleUrl: '/api/baby-bottle',
   diaperUrl: '/api/diaper',
   vaccineUrl: '/api/vaccine',
+  growthUrl: '/api/growth',
+
 
 };
 

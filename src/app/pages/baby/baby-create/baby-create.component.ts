@@ -37,7 +37,6 @@ export class BabyCreateComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.addBabyForm.value);
     if (this.addBabyForm.invalid) {
       return;
     }
@@ -52,7 +51,6 @@ export class BabyCreateComponent implements OnInit {
     this.baby.name = this.addBabyForm.controls.name.value;
     this.baby.weight = this.addBabyForm.controls.weight.value;
     this.baby.photo = this.addBabyForm.controls.photo.value;
-    console.log(this.baby);
     if (this.isUpdate) {
       this.babyService.update(this.baby).subscribe(() => {
         this.router.navigate(['/baby']);
