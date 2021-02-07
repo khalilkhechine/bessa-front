@@ -18,6 +18,11 @@ export class VaccineComponent implements OnInit {
     if (selectedBabyId) {
       this.babyInformationService.getVaccinesByBaby(this._selectedBabyId).subscribe(response => {
         this.vaccines = response;
+        if (response && response.length > 0) {
+          this.mode = 'list';
+        } else {
+          this.mode = 'create';
+        }
       });
     }}
 

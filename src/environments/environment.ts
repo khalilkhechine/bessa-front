@@ -12,7 +12,8 @@ export const environment = {
   diaperUrl: '/api/diaper',
   vaccineUrl: '/api/vaccine',
   growthUrl: '/api/growth',
-  temperatureUrl: '/api/temperature'
+  temperatureUrl: '/api/temperature',
+  medicineUrl: '/api/medicine',
 };
 
 /*
