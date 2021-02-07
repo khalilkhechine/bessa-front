@@ -19,6 +19,7 @@ import {BabyBottleComponent} from '../../pages/baby-information/baby-bottle/baby
 import {DiaperComponent} from '../../pages/baby-information/diaper/diaper.component';
 import {VaccineComponent} from '../../pages/baby-information/vaccine/vaccine.component';
 import {GrowthComponent} from '../../pages/baby-information/growth/growth.component';
+import {TemperatureComponent} from '../../pages/baby-information/temperature/temperature.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -44,6 +45,7 @@ import {GrowthComponent} from '../../pages/baby-information/growth/growth.compon
     DiaperComponent,
     VaccineComponent,
     GrowthComponent,
+    TemperatureComponent
   ]
 })
 

@@ -1,0 +1,80 @@
+<div *ngIf="selectedBabyId">
+  <div class="row">
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-9 text-left">
+      <h6 class="heading-small text-muted mb-4">Temperature information</h6>
+    </div>
+    <div class="col-3 text-right">
+      <button class="btn btn-icon btn-sm btn-2 btn-primary " type="button" (click)="initCreate()">
+        <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
+      </button>
+    </div>
+  </div>
+  <form *ngIf="mode === 'update' || mode === 'create'" [formGroup]="temperatureFormGroup" (ngSubmit)="submitGrowthInformation()">
+    <div class="pl-lg-12">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label class="form-control-label" for="input-date-temperature">Date</label>
+            <input
+              type="date"
+              id="input-date-temperature"
+              class="form-control form-control-alternative"
+              placeholder="Date"
+              formControlName="date"
+            >
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label class="form-control-label" for="input-temperature">Temperature</label>
+            <input
+              type="number"
+              min="0"
+              id="input-temperature"
+              class="form-control form-control-alternative"
+              placeholder="Temperature"
+              formControlName="temperature"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-right">
+          <button type="submit" class="btn btn-sm btn-primary btn-lg">Submit</button>
+          <button type="reset" class="btn btn-sm btn-secondary btn-lg">Reset</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="table-responsive" *ngIf="mode === 'list'">
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Temperature</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let t of temperature.metering">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <span class="mb-0 text-sm">{{t.date | date:'medium'}}</span>
+            </div>
+          </div>
+        </th>
+        <td>
+          {{t.temperature | number}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

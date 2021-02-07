@@ -19,10 +19,12 @@ export class GrowthComponent implements OnInit {
     this._selectedBabyId = selectedBabyId;
     if (selectedBabyId) {
       this.babyInformationService.getGrowthByBaby(this._selectedBabyId).subscribe(response => {
-        this.growth = response;
-        if (this.growth) {
+        if (response) {
           this.mode = 'list';
+        } else {
+          this.mode = 'create';
         }
+        this.growth = response;
       });
     }}
 
