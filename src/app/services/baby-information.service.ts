@@ -8,6 +8,7 @@ import {Vaccine} from '../models/vaccine.model';
 import {Growth} from '../models/growth.model';
 import {Temperature} from '../models/temperature.model';
 import {Medicine} from '../models/medicine.model';
+import {Doctor} from '../models/doctor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class BabyInformationService {
   private growthUrl = environment.apiUrl + environment.growthUrl;
   private temperatureUrl = environment.apiUrl + environment.temperatureUrl;
   private medicineUrl = environment.apiUrl + environment.medicineUrl;
+  private doctorUrl = environment.apiUrl + environment.doctorUrl;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -93,5 +95,21 @@ export class BabyInformationService {
 
   finishMedicine(id: string): Observable<Medicine> {
     return this.httpClient.post<Medicine>(this.medicineUrl + '/' +  id + '/finished', null);
+  }
+
+  getDoctorByBaby(babyId: any): Observable<Doctor[]> {
+    return this.httpClient.get<Doctor[]>(this.doctorUrl + '/baby/' + babyId);
+  }
+
+  addDoctor(doctor): Observable<Doctor> {
+    return this.httpClient.post<Doctor>(this.doctorUrl, doctor);
+  }
+
+  addAppointment(id: string, appointment): Observable<Doctor> {
+    return this.httpClient.post<Doctor>(this.doctorUrl + '/' +  id + '/appointment', appointment);
+  }
+
+  getHeightStat(id): Observable<any> {
+    return this.httpClient.get<any>(this.growthUrl + '/baby/' + id + '/stat/height');
   }
 }

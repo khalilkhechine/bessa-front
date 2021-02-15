@@ -1,0 +1,181 @@
+<div *ngIf="selectedBabyId">
+  <div class="row">
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 text-left">
+      <h6 class="heading-small text-muted mb-4">Doctor information</h6>
+    </div>
+    <div class="col-4 text-right">
+      <button class="btn btn-icon btn-sm btn-2 btn-primary " type="button" (click)="initCreate()">
+        <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
+      </button>
+    </div>
+  </div>
+  <form *ngIf="mode === 'update' || mode === 'create'" [formGroup]="doctorFormGroup" (ngSubmit)="submitDoctorInformation()">
+    <div class="pl-lg-12">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label class="form-control-label" for="input-name-doctor">Name</label>
+            <input
+              type="text"
+              id="input-name-doctor"
+              class="form-control form-control-alternative"
+              placeholder="Name"
+              formControlName="name"
+            >
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label class="form-control-label" for="input-email-doctor">Email</label>
+            <input
+              type="email"
+              id="input-email-doctor"
+              class="form-control form-control-alternative"
+              placeholder="Email"
+              formControlName="email"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label class="form-control-label" for="input-address-doctor">Address</label>
+            <input
+              type="text"
+              min="0"
+              id="input-address-doctor"
+              class="form-control form-control-alternative"
+              placeholder="Address"
+              formControlName="address"
+            >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label class="form-control-label" for="input-speciality-doctor">Speciality</label>
+            <input
+              type="text"
+              min="0"
+              id="input-speciality-doctor"
+              class="form-control form-control-alternative"
+              placeholder="Speciality"
+              formControlName="speciality"
+            >
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col text-right">
+          <button type="submit" class="btn btn-sm btn-primary btn-lg">Submit</button>
+          <button type="reset" class="btn btn-sm btn-secondary btn-lg">Reset</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <form *ngIf="mode === 'appointment-create'" [formGroup]="appointmentFormGroup" (ngSubmit)="submitAppointment()">
+    <div class="pl-lg-12">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="form-group">
+            <label class="form-control-label" for="input-appointment">Appointment</label>
+            <input
+              type="date"
+              id="input-appointment"
+              class="form-control form-control-alternative"
+              placeholder="Appointment"
+              formControlName="appointment"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-right">
+          <button type="submit" class="btn btn-sm btn-primary btn-lg">Submit</button>
+          <button type="reset" class="btn btn-sm btn-secondary btn-lg">Reset</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="table-responsive" *ngIf="mode === 'list'">
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Speciality</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let d of doctors">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <span class="mb-0 text-sm">{{d.name}}</span>
+            </div>
+          </div>
+        </th>
+        <td>
+          {{d.email}}
+        </td>
+        <td>
+          {{d.address}}
+        </td>
+        <td>
+          {{d.speciality}}
+        </td>
+        <td class="text-right">
+          <div ngbDropdown placement="bottom-right">
+            <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+              <i class="fas fa-ellipsis-v"></i>
+            </a>
+            <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+              <button class="dropdown-item" (click)="initListAppointments(d)">Appointments</button>
+              <button class="dropdown-item" (click)="initCreateAppointment(d)">Add Appointment</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-responsive" *ngIf="mode === 'appointment-list'">
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Doctor</th>
+        <th scope="col">Appointment</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let a of selectedDoctor.appointments">
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <span class="mb-0 text-sm">{{selectedDoctor.name}}</span>
+            </div>
+          </div>
+        </th>
+        <th scope="row">
+          <div class="media align-items-center">
+            <div class="media-body">
+              <span class="mb-0 text-sm">{{a.appointment | date}}</span>
+            </div>
+          </div>
+        </th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

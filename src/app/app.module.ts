@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {JwtInterceptorService} from './services/interceptors/jwt-interceptor.service';
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
+import { DoctorComponent } from './pages/baby-information/doctor/doctor.component';
 
 @NgModule({
   imports: [

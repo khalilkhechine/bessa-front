@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import {CommonModule, DatePipe} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ClipboardModule } from 'ngx-clipboard';
@@ -21,6 +22,7 @@ import {VaccineComponent} from '../../pages/baby-information/vaccine/vaccine.com
 import {GrowthComponent} from '../../pages/baby-information/growth/growth.component';
 import {TemperatureComponent} from '../../pages/baby-information/temperature/temperature.component';
 import {MedicineComponent} from '../../pages/baby-information/medicine/medicine.component';
+import {DoctorComponent} from '../../pages/baby-information/doctor/doctor.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -47,7 +49,11 @@ import {MedicineComponent} from '../../pages/baby-information/medicine/medicine.
     VaccineComponent,
     GrowthComponent,
     TemperatureComponent,
-    MedicineComponent
+    MedicineComponent,
+    DoctorComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
 

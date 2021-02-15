@@ -14,6 +14,8 @@ export const environment = {
   growthUrl: '/api/growth',
   temperatureUrl: '/api/temperature',
   medicineUrl: '/api/medicine',
+  doctorUrl: '/api/doctor'
+
 };
 
 /*
