@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import {AuthenticationService} from '../../services/auth/authentication.service';
+import {SocketIOService} from '../../services/socket-ioservice.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,13 +14,19 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+  notification = [];
   constructor(
     location: Location,
     private element: ElementRef,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private socketIOService: SocketIOService
   ) {
     this.location = location;
+    this.socketIOService.incomingNotification.subscribe((value: any[]) => {
+      console.log(value);
+      this.notification = value;
+    });
   }
 
   ngOnInit() {

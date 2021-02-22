@@ -165,8 +165,8 @@ export function chartOptions() {
       global: {
         responsive: true,
         maintainAspectRatio: false,
-        defaultColor: (mode === 'dark') ? colors.gray[700] : colors.gray[600],
-        defaultFontColor: (mode === 'dark') ? colors.gray[700] : colors.gray[600],
+        defaultColor: colors.gray[700],
+        defaultFontColor: colors.gray[700],
         defaultFontFamily: fonts.base,
         defaultFontSize: 13,
         layout: {
@@ -197,7 +197,7 @@ export function chartOptions() {
           },
           arc: {
             backgroundColor: colors.theme['primary'],
-            borderColor: (mode === 'dark') ? colors.gray[800] : colors.white,
+            borderColor: colors.gray[800],
             borderWidth: 4
           }
         },
@@ -233,12 +233,12 @@ export function chartOptions() {
     gridLines: {
       borderDash: [2],
       borderDashOffset: [2],
-      color: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
+      color: colors.gray[900],
       drawBorder: false,
       drawTicks: false,
       lineWidth: 0,
       zeroLineWidth: 0,
-      zeroLineColor: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
+      zeroLineColor: colors.gray[900],
       zeroLineBorderDash: [2],
       zeroLineBorderDashOffset: [2]
     },

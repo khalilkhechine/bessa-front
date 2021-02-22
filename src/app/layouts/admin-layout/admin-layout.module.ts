@@ -23,7 +23,7 @@ import {GrowthComponent} from '../../pages/baby-information/growth/growth.compon
 import {TemperatureComponent} from '../../pages/baby-information/temperature/temperature.component';
 import {MedicineComponent} from '../../pages/baby-information/medicine/medicine.component';
 import {DoctorComponent} from '../../pages/baby-information/doctor/doctor.component';
-// import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -33,7 +33,8 @@ import {DoctorComponent} from '../../pages/baby-information/doctor/doctor.compon
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule
   ],
   declarations: [
     DashboardComponent,
