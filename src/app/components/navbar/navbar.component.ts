@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import {AuthenticationService} from '../../services/auth/authentication.service';
 import {SocketIOService} from '../../services/socket-ioservice.service';
+import {Notification} from '../../models/notification.model';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  notification = [];
+  notifications: Notification[] = [];
   constructor(
     location: Location,
     private element: ElementRef,
@@ -23,9 +24,8 @@ export class NavbarComponent implements OnInit {
     private socketIOService: SocketIOService
   ) {
     this.location = location;
-    this.socketIOService.incomingNotification.subscribe((value: any[]) => {
-      console.log(value);
-      this.notification = value;
+    this.socketIOService.incomingNotification.subscribe((value: Notification[]) => {
+      this.notifications = value;
     });
   }
 
@@ -48,5 +48,11 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
+  }
+
+  sendReadNotification(event: boolean) {
+    if (!event) {
+      this.socketIOService.sendReadNotification(this.notifications);
+    }
   }
 }

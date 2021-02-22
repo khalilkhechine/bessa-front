@@ -1,4 +1,4 @@
-export interface Vaccine {
+export interface Notification {
   _id?: string;
   type: string;
   date: Date;
